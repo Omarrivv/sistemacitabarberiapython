@@ -1,0 +1,22 @@
+{% include 'sitio/cabecera.html' %}
+
+<h1>Crear Cita</h1>
+    <form action="{{ url_for('hacer_cita') }}" method="POST">
+        <label for="fecha">Fecha:</label>
+        <input type="date" id="fecha" name="fecha" required><br><br>
+
+        <label for="hora">Hora:</label>
+        <input type="time" id="hora" name="hora" required><br><br>
+
+        <label for="nota">Nota:</label>
+        <input type="text" id="nota" name="nota" required><br><br>
+
+        <label for="barbero">Barbero:</label>
+        <select id="barbero" name="barbero" required>
+            {% for barbero in barberos %}
+                <option value="{{ barbero[0] }}">{{ barbero[1] }} {{ barbero[2] }}</option>
+            {% endfor %}
+        </select><br><br>
+        <button type="submit">Crear Cita</button>
+    </form>
+{% include 'sitio/pie.html' %}

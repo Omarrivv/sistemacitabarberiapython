@@ -1,0 +1,18 @@
+{% include 'sitio/cabecera.html' %}
+<div class="row">
+    {% for cita in citas %}
+    <div class="col-md-6">
+        <div class="card">
+            <div class="card-body">
+                <h5 class="card-title">Fecha: {{ cita[1] }}</h5>
+                <p class="card-text">Hora: {{ cita[2] }}</p>
+                <p class="card-text">Nota: {{ cita[3] }}</p>
+                <p class="card-text">Estado: {{ cita[4] }}</p>
+                <p class="card-text">Barbero: {{ cita[5] }} {{ cita[6] }}</p>
+                <p class="card-text">Corte Realizado: {{ cita[7] }}</p>
+            </div>
+        </div>
+    </div>
+    {% endfor %}
+</div>
+{% include 'sitio/pie.html' %}

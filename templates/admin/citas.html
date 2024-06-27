@@ -1,0 +1,51 @@
+{% include 'admin/cabecera.html' %}
+<!-- Agrega el código HTML y Jinja2 aquí -->
+
+<table class="table">
+    <h3 class="text-center mt-5">CITAS HECHAS:</h3>
+    <br>
+    <thead>
+        <tr>
+            <th>ID Cita</th>
+            <th>Fecha</th>
+            <th>Hora</th>
+            <th>Nota</th>
+            <th>Estado</th>
+            <th>Cliente</th>
+            <th>DNI Cliente :</th>
+            <th>Celular Cliente</th>
+            <th>Nombre Barbero :</th>
+            <th>DNI Barbero :</th>
+            <th>Acciones</th> <!-- Agrega esta columna para los botones de acción -->
+        </tr>
+    </thead>
+    <tbody>
+        {% for cita in citas %}
+        <tr>
+            <td>{{ cita[0] }}</td>
+            <td>{{ cita[1] }}</td>
+            <td>{{ cita[2] }}</td>
+            <td>{{ cita[3] }}</td>
+            <td>{{ cita[4] }}</td>
+            <td>{{ cita[5] }} {{ cita[6] }}</td>
+            <td>{{ cita[7] }} </td>
+            <td>{{ cita[8] }} </td>
+            <td>{{ cita[9] }} {{ cita[10] }}</td>
+            <td>{{ cita[11] }} </td>
+            <td>
+                <form method="POST" action="/admin/cita/{{ cita[0] }}/editar">
+                    <select name="estado">
+                        <option value="pendiente" {% if cita[4] == 'pendiente' %} selected {% endif %}>Pendiente</option>
+                        <option value="cancelado" {% if cita[4] == 'cancelado' %} selected {% endif %}>Cancelado</option>
+                        <option value="terminado" {% if cita[4] == 'terminado' %} selected {% endif %}>Terminado</option>
+                    </select>
+                    <button type="submit" class="btn btn-primary">Actualizar</button>
+                </form>
+            </td>
+            <!-- {{ cita[6] }} (DNI: {{ cita[7] }}) -->
+            <!-- {{ cita[9] }} (DNI: {{ cita[10] }}) -->
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+{% include 'admin/pie.html' %}

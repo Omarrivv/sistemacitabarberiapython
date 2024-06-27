@@ -1,0 +1,38 @@
+{% include 'sitio/cabecera.html' %}
+<div class="container mt-5">
+    <div class="row">
+        <div class="col-md-6 offset-md-3">
+            <div class="card">
+                <div class="card-header">
+                    <h5 class="card-title">Reprogramar Cita</h5>
+                </div>
+                <div class="card-body">
+                    <form action="/recerbar_cita" method="POST">
+                        <div class="form-group">
+                            <label for="fecha">Fecha:</label>
+                            <input type="date" class="form-control" id="fecha" name="fecha" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="hora">Hora:</label>
+                            <input type="time" class="form-control" id="hora" name="hora" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="nota">Nota:</label>
+                            <textarea class="form-control" id="nota" name="nota" rows="3"></textarea>
+                        </div>
+                        <div class="form-group">
+                            <label for="barbero">Barbero:</label>
+                            <select class="form-control" id="barbero" name="barbero">
+                                {% for barbero in barberos %}
+                                    <option value="{{ barbero.id }}">{{ barbero.nombre }} {{ barbero.apellido }}</option>
+                                {% endfor %}
+                            </select>
+                        </div>
+                        <button type="submit" class="btn btn-primary">Enviar</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% include 'sitio/pie.html' %}

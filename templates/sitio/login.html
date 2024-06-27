@@ -1,0 +1,24 @@
+{% include 'sitio/cabecera.html' %}
+<div class="container mt-5">
+    <div class="row justify-content-center">
+        <div class="col-md-6">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">Inicio de Sesión para Clientes</h5>
+                    <form action="/cliente/login" method="post">
+                        <div class="mb-3">
+                            <label for="email_cliente" class="form-label">Correo Electrónico</label>
+                            <input type="email" class="form-control" id="email_cliente" name="email_cliente" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="password_cliente" class="form-label">Contraseña</label>
+                            <input type="password" class="form-control" id="password_cliente" name="password_cliente" required>
+                        </div>
+                        <button type="submit" class="btn btn-primary">Iniciar Sesión</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% include 'sitio/pie.html' %}

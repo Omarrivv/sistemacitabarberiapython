@@ -1,0 +1,16 @@
+{% include 'admin/cabecera.html' %}
+
+<h1>Realizar Pago</h1>
+<form action="/admin/realizar_pago" method="POST">
+    <label for="dni_cliente">DNI del Cliente:</label>
+    <input type="text" id="dni_cliente" name="dni_cliente" required><br><br>
+    <label for="monto">Monto:</label>
+    <input type="number" id="monto" name="monto" step="0.01" required><br><br>
+    <label for="fecha_pago">Fecha de Pago:</label>
+    <input type="date" id="fecha_pago" name="fecha_pago" required><br><br>
+    <label for="corte_realizado">Corte Realizado:</label>
+    <input type="text" id="corte_realizado" name="corte_realizado" required><br><br>
+    <button type="submit">Realizar Pago</button>
+</form>
+
+{% include 'admin/pie.html' %}
